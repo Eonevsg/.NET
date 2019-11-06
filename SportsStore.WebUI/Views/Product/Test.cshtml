@@ -1,0 +1,32 @@
+﻿@model SportsStore.WebUI.Models.UserListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        @foreach (var u in Model.Users)
+        {
+            <div>
+                <h3>@u.Id</h3>
+                <h4>@u.FirstName</h4>
+                <h4>@u.LastName</h4>
+                <h4>@u.Email</h4>
+                <h4>@u.Phone</h4>
+                <h4>@u.Age</h4>
+                <h4>@u.City</h4>
+                <h4>@u.Address</h4>
+                <h4>@u.DateOfBirth</h4>
+            </div>
+        }
+    </div>
+</body>
+</html>

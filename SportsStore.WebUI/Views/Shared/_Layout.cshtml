@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/SiteCustom.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+
+        @if (HttpContext.Current.Session["UserIsValidated"] != null)
+        {
+            <div id="cart">
+                <span class="caption">
+                    @Html.ActionLink("Log out", "Logout", "Account", new
+               {
+                   returnUrl = Request.Url.PathAndQuery
+               }, null)
+                </span>
+            </div>
+
+            <div class="title" style="float: right">You are logged in as: <span style="color: red">@Session["Username"]</span></div>
+            Html.RenderAction("Summary", "Cart");
+        }
+        else
+        {
+            <div id="cart">
+                <span class="caption">
+                    @Html.ActionLink("Log in", "Login", "Account", new
+               {
+                   returnUrl = Request.Url.PathAndQuery
+               }, null)
+                </span>
+            </div>
+
+            <div id="cart">
+                <span class="caption">
+                    @Html.ActionLink("Register", "Registration", "Account", new
+               {
+                   returnUrl = Request.Url.PathAndQuery
+               }, null)
+                </span>
+            </div>
+        }
+
+
+
+        <div class="title">SPORTS STORE</div>
+    </div>
+    <div id="categories">
+        @{ Html.RenderAction("Menu", "Nav"); }
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+</body>
+</html>

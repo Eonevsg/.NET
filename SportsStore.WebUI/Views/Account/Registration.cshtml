@@ -1,0 +1,39 @@
+﻿@model SportsStore.Domain.Entities.User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <h3>Registration Form</h3>
+            <div>First Name: @Html.EditorFor(x => x.FirstName)</div>
+            <div>Last Name: @Html.EditorFor(x => x.LastName)</div>
+            <div>Username: @Html.EditorFor(x => x.Username)</div>
+            <div>Password: @Html.EditorFor(x => x.Password)</div>
+            <div>Email: @Html.EditorFor(x => x.Email)</div>
+            <div>RetypeEmail: @Html.EditorFor(x => x.RetypeEmail)</div>
+            <div>Phone: @Html.EditorFor(x => x.Phone)</div>
+            <div>Age: @Html.EditorFor(x => x.Age)</div>
+            <div>City: @Html.EditorFor(x => x.City)</div>
+            <div>Address: @Html.EditorFor(x => x.Address)</div>
+            <div>DateOfBirth: @Html.EditorFor(x => x.DateOfBirth)</div>
+
+
+            <p align="center">
+                <input class="actionButtons" type="submit" value="Register" />
+            </p>
+        }
+    </div>
+</body>
+</html>
